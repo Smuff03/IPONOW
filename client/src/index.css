@@ -1,0 +1,107 @@
+@import url("https://fonts.googleapis.com/css2?family=Space+Grotesk:wght@500;600;700&family=Inter:wght@400;500;600;700&family=IBM+Plex+Mono:wght@400;500;600&display=swap");
+@import "tailwindcss";
+
+@custom-variant dark (&:where(.dark, .dark *));
+
+:root {
+  --paper: #eef2f0;
+  --paper-raised: #ffffff;
+  --ink: #10231c;
+  --ink-soft: #43574c;
+  --line: #d7e0da;
+  --brand: #0f6b45;
+  --brand-strong: #0b4f34;
+  --brand-soft: #e3f2e9;
+  --gold: #b8892b;
+  --gold-soft: #f7ecd3;
+  --up: #0f8a4b;
+  --down: #c1443b;
+  --flat: #8a8f7f;
+  --radius-card: 10px;
+}
+
+.dark {
+  --paper: #0d1512;
+  --paper-raised: #131f1a;
+  --ink: #eef2ee;
+  --ink-soft: #9fb0a6;
+  --line: #223028;
+  --brand: #2fbf7d;
+  --brand-strong: #46d492;
+  --brand-soft: #142a20;
+  --gold: #e0b559;
+  --gold-soft: #26200f;
+  --up: #34c281;
+  --down: #ef6b62;
+  --flat: #7d8a80;
+}
+
+* {
+  border-color: var(--line);
+}
+
+html {
+  scroll-behavior: smooth;
+}
+
+body {
+  background-color: var(--paper);
+  color: var(--ink);
+  font-family: "Inter", ui-sans-serif, system-ui, sans-serif;
+  -webkit-font-smoothing: antialiased;
+}
+
+.font-display {
+  font-family: "Space Grotesk", "Inter", sans-serif;
+}
+
+.font-mono-data {
+  font-family: "IBM Plex Mono", ui-monospace, monospace;
+}
+
+::selection {
+  background: var(--brand);
+  color: white;
+}
+
+@keyframes ticker-scroll {
+  0% { transform: translateX(0); }
+  100% { transform: translateX(-50%); }
+}
+.animate-ticker {
+  animation: ticker-scroll 38s linear infinite;
+}
+.animate-ticker:hover {
+  animation-play-state: paused;
+}
+
+:focus-visible {
+  outline: 2px solid var(--brand);
+  outline-offset: 2px;
+}
+
+@media (prefers-reduced-motion: reduce) {
+  *, *::before, *::after {
+    animation-duration: 0.01ms !important;
+    animation-iteration-count: 1 !important;
+    transition-duration: 0.01ms !important;
+    scroll-behavior: auto !important;
+  }
+}
+
+@theme inline {
+  --color-paper: var(--paper);
+  --color-paper-raised: var(--paper-raised);
+  --color-ink: var(--ink);
+  --color-ink-soft: var(--ink-soft);
+  --color-line: var(--line);
+  --color-brand: var(--brand);
+  --color-brand-strong: var(--brand-strong);
+  --color-brand-soft: var(--brand-soft);
+  --color-gold: var(--gold);
+  --color-gold-soft: var(--gold-soft);
+  --color-up: var(--up);
+  --color-down: var(--down);
+  --color-flat: var(--flat);
+  --radius-card: var(--radius-card);
+}

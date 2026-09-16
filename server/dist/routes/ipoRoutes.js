@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.ipoRoutes = void 0;
+const express_1 = require("express");
+const asyncHandler_1 = require("../utils/asyncHandler.js");
+const ipoController_1 = require("../controllers/ipoController.js");
+exports.ipoRoutes = (0, express_1.Router)();
+exports.ipoRoutes.get("/ipos", (0, asyncHandler_1.asyncHandler)(ipoController_1.listIpos));
+exports.ipoRoutes.get("/ipos/:slug", (0, asyncHandler_1.asyncHandler)(ipoController_1.getIpoBySlug));
+exports.ipoRoutes.get("/gmp", (0, asyncHandler_1.asyncHandler)(ipoController_1.getGmpSnapshot));
+exports.ipoRoutes.get("/subscriptions", (0, asyncHandler_1.asyncHandler)(ipoController_1.getSubscriptions));

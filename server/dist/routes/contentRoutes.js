@@ -1,0 +1,11 @@
+"use strict";
+Object.defineProperty(exports, "__esModule", { value: true });
+exports.contentRoutes = void 0;
+const express_1 = require("express");
+const asyncHandler_1 = require("../utils/asyncHandler.js");
+const contentController_1 = require("../controllers/contentController.js");
+exports.contentRoutes = (0, express_1.Router)();
+exports.contentRoutes.get("/articles", (0, asyncHandler_1.asyncHandler)(contentController_1.listArticles));
+exports.contentRoutes.get("/articles/:slug", (0, asyncHandler_1.asyncHandler)(contentController_1.getArticleBySlug));
+exports.contentRoutes.get("/reviews", (0, asyncHandler_1.asyncHandler)(contentController_1.listReviews));
+exports.contentRoutes.get("/allotment", (0, asyncHandler_1.asyncHandler)(contentController_1.listAllotmentSources));

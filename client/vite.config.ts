@@ -16,7 +16,8 @@ export default defineConfig({
     strictPort: true, // fail loudly instead of silently drifting to 5174/5175/... when 5173 is busy
     proxy: {
       '/api': {
-        target: 'http://localhost:4000',
+        // jithe localhost:4000 asel te change kr ... ha url tak - https://ipo-new-server.onrender.com/
+        target: 'https://ipo-new-server.onrender.com',
         changeOrigin: true,
       },
     },

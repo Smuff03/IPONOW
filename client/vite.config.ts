@@ -17,7 +17,7 @@ export default defineConfig({
     proxy: {
       '/api': {
         // jithe localhost:4000 asel te change kr ... ha url tak - https://ipo-new-server.onrender.com/
-        target: 'https://ipo-new-server.onrender.com',
+        target: 'https://ipo-new-server.onrender.com/',// ithe na
         changeOrigin: true,
       },
     },

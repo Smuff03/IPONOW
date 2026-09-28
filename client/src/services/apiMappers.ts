@@ -41,33 +41,43 @@ function str(value: unknown, fallback = ""): string {
 }
 
 export function mapIpo(raw: Record<string, unknown>): IPO {
-  const lastUpdated = str(raw.lastUpdated, new Date().toISOString());
+  const gmpObj = raw.gmp as Record<string, unknown> | undefined;
+
+  const getGmpValue = () => {
+    if (typeof raw.gmp === 'number') return num(raw.gmp);
+    if (gmpObj && gmpObj.price) return num(gmpObj.price);
+    return 0;
+  };
+
+  const lastUpdatedRaw = gmpObj?.updated_at ?? raw.lastUpdated;
+  const lastUpdated = str(lastUpdatedRaw, new Date().toISOString());
+
   const gmpHistoryRaw = Array.isArray(raw.gmpHistory) ? (raw.gmpHistory as Record<string, unknown>[]) : [];
   const subscriptionsRaw = Array.isArray(raw.subscriptions) ? (raw.subscriptions as Record<string, unknown>[]) : [];
 
   return {
-    id: str(raw.id),
-    name: str(raw.name),
+    id: str(raw.slug ?? raw.id),
+    name: str(raw.display_name ?? raw.name),
     slug: str(raw.slug),
-    company: str(raw.company),
+    company: str(raw.company ?? raw.display_name ?? raw.name),
     logo: raw.logo ? str(raw.logo) : undefined,
-    type: str(raw.type).toLowerCase() as IPOType,
-    priceBandMin: num(raw.priceBandMin),
-    priceBandMax: num(raw.priceBandMax),
-    lotSize: num(raw.lotSize),
-    issueSizeCr: num(raw.issueSizeCr),
-    gmp: num(raw.gmp),
+    type: str(raw.type ?? raw.sub_type, "MAINBOARD").toLowerCase() as IPOType,
+    priceBandMin: num(raw.price_min ?? raw.priceBandMin),
+    priceBandMax: num(raw.price_max ?? raw.priceBandMax),
+    lotSize: num(raw.lot_size ?? raw.lotSize),
+    issueSizeCr: num(raw.issue_size ?? raw.issueSizeCr),
+    gmp: getGmpValue(),
     gmpTrend: str(raw.gmpTrend, "FLAT").toLowerCase() as GMPTrend,
     gmpHistory: gmpHistoryRaw.map((p) => ({ timestamp: str(p.timestamp), gmp: num(p.gmp) })),
-    expectedSubscriptionX: num(raw.expectedSubscription),
-    estimatedListing: num(raw.estimatedListing),
-    openDate: str(raw.openDate),
-    closeDate: str(raw.closeDate),
-    allotmentDate: str(raw.allotmentDate),
-    refundDate: str(raw.refundDate),
-    demateDate: str(raw.demateDate),
-    listingDate: str(raw.listingDate),
-    status: str(raw.status, "UPCOMING").toLowerCase() as IPOStatus,
+    expectedSubscriptionX: num(raw.subscription_total ?? raw.expectedSubscription),
+    estimatedListing: num(gmpObj?.estimated_listing_price ?? raw.estimatedListing),
+    openDate: str(raw.open_date ?? raw.openDate),
+    closeDate: str(raw.close_date ?? raw.closeDate),
+    allotmentDate: str(raw.allotment_date ?? raw.allotmentDate),
+    refundDate: str(raw.refund_date ?? raw.refundDate),
+    demateDate: str(raw.demate_date ?? raw.demateDate),
+    listingDate: str(raw.listing_date ?? raw.listingDate),
+    status: str(raw.status, "UPCOMING").toLowerCase().replace(/ /g, "_") as IPOStatus,
     registrar: str(raw.registrar),
     registrarUrl: str(raw.registrarUrl),
     leadManagers: Array.isArray(raw.leadManagers) ? (raw.leadManagers as string[]) : [],
@@ -83,8 +93,8 @@ export function mapIpo(raw: Record<string, unknown>): IPO {
     about: str(raw.about),
     strengths: Array.isArray(raw.strengths) ? (raw.strengths as string[]) : [],
     risks: Array.isArray(raw.risks) ? (raw.risks as string[]) : [],
-    source: str(raw.source),
-    sourceUrl: str(raw.sourceUrl),
+    source: str(raw.source, "IPO Guru"),
+    sourceUrl: str(raw.web_url ?? raw.sourceUrl),
     lastUpdated,
     dataStatus: toDataStatus(lastUpdated),
   };

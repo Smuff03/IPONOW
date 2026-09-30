@@ -4,7 +4,7 @@ import { Breadcrumbs } from "@/components/Breadcrumbs";
 function LegalPage({ title, canonicalPath, children }: { title: string; canonicalPath: string; children: React.ReactNode }) {
   return (
     <div className="mx-auto max-w-3xl px-4 py-8 sm:px-6">
-      <Seo title={title} description={`${title} for Greenshoe.`} canonicalPath={canonicalPath} />
+      <Seo title={title} description={`${title} for IPONOW.`} canonicalPath={canonicalPath} />
       <Breadcrumbs items={[{ label: title }]} />
       <h1 className="mt-3 font-display text-3xl font-semibold">{title}</h1>
       <div className="prose-content mt-4 space-y-4 text-sm leading-relaxed text-ink-soft">{children}</div>
@@ -16,7 +16,7 @@ export function Disclaimer() {
   return (
     <LegalPage title="Disclaimer" canonicalPath="/disclaimer">
       <p>
-        Greenshoe is an independent information portal and is not affiliated with any stock exchange, registrar,
+        IPONOW is an independent information portal and is not affiliated with any stock exchange, registrar,
         merchant banker, or issuer company.
       </p>
       <p>

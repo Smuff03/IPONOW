@@ -25,19 +25,19 @@ export function About() {
   return (
     <div className="mx-auto max-w-3xl px-4 py-8 sm:px-6">
       <Seo
-        title="About Greenshoe"
-        description="Greenshoe is an independent IPO tracking portal covering grey market premium, subscription data, allotment status and market news."
+        title="About IPONOW"
+        description="IPONOW is an independent IPO tracking portal covering grey market premium, subscription data, allotment status and market news."
         canonicalPath="/about"
       />
       <Breadcrumbs items={[{ label: "About us" }]} />
-      <h1 className="mt-3 font-display text-3xl font-semibold">About Greenshoe</h1>
+      <h1 className="mt-3 font-display text-3xl font-semibold">About IPONOW</h1>
       <p className="mt-4 text-ink-soft">
-        Greenshoe tracks India's primary market — mainboard and SME IPOs — so investors can see grey market premium,
+        IPONOW tracks India's primary market — mainboard and SME IPOs — so investors can see grey market premium,
         subscription numbers, price bands and allotment status in one place, without digging through a dozen
         registrar sites and forums.
       </p>
       <p className="mt-3 text-ink-soft">
-        The name comes from the "greenshoe" option: the over-allotment mechanism underwriters use to stabilise a
+        The name comes from the "IPONOW" option: the over-allotment mechanism underwriters use to stabilise a
         stock's price just after listing. It felt like the right name for a site built around watching that exact
         moment closely.
       </p>

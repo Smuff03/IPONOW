@@ -12,7 +12,7 @@ export function Contact() {
     <div className="mx-auto max-w-2xl px-4 py-8 sm:px-6">
       <Seo
         title="Contact us"
-        description="Get in touch with the Greenshoe team for corrections, data source suggestions, or partnership inquiries."
+        description="Get in touch with the IPONOW team for corrections, data source suggestions, or partnership inquiries."
         canonicalPath="/contact"
       />
       <Breadcrumbs items={[{ label: "Contact us" }]} />
@@ -23,8 +23,8 @@ export function Contact() {
 
       <div className="mt-6 flex items-center gap-2 rounded-[var(--radius-card)] border border-line bg-paper-raised p-4 text-sm">
         <Mail className="h-4 w-4 text-brand" />
-        <a href="mailto:hello@greenshoe.example.com" className="font-medium text-brand hover:underline">
-          hello@greenshoe.example.com
+        <a href="mailto:hello@IPONOW.example.com" className="font-medium text-brand hover:underline">
+          hello@IPONOW.example.com
         </a>
       </div>
 

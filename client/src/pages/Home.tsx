@@ -19,7 +19,7 @@ const FAQS = [
     a: "GMP is the unofficial premium at which IPO shares are traded before listing, in a market outside exchange regulation. It's a widely tracked sentiment indicator, not a guarantee of listing price.",
   },
   {
-    q: "How often is GMP updated on Greenshoe?",
+    q: "How often is GMP updated on IPONOW?",
     a: "Grey market premium and IPO status are refreshed every 30 minutes while an issue is open, sourced from configured data providers. Each figure carries a source and last-updated timestamp.",
   },
   {
@@ -56,8 +56,8 @@ export function Home() {
         jsonLd={{
           "@context": "https://schema.org",
           "@type": "WebSite",
-          name: "Greenshoe",
-          url: "https://greenshoe.example.com",
+          name: "IPONOW",
+          url: "https://IPONOW.example.com",
         }}
       />
 

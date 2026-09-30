@@ -55,7 +55,7 @@ function AdminLogin({ onLogin }: { onLogin: (token: string, user: { id: string; 
 
   return (
     <div className="mx-auto flex max-w-sm flex-col items-center px-4 py-24">
-      <Seo title="Admin login" description="Greenshoe admin dashboard login." canonicalPath="/admin" />
+      <Seo title="Admin login" description="IPONOW admin dashboard login." canonicalPath="/admin" />
       <ShieldAlert className="h-8 w-8 text-brand" />
       <h1 className="mt-3 font-display text-2xl font-semibold">Admin login</h1>
       <p className="mt-1 text-center text-sm text-ink-soft">
@@ -89,8 +89,8 @@ function AdminDashboard({ token, userName, onLogout }: { token: string; userName
 
   const refreshAll = () => {
     adminListIpos(token).then(setIpos).catch((e) => setError(e.message));
-    adminListSources(token).then(setSources).catch(() => {});
-    adminListLogs(token).then(setLogs).catch(() => {});
+    adminListSources(token).then(setSources).catch(() => { });
+    adminListLogs(token).then(setLogs).catch(() => { });
   };
 
   useEffect(refreshAll, [token]);
@@ -110,7 +110,7 @@ function AdminDashboard({ token, userName, onLogout }: { token: string; userName
 
   return (
     <div className="mx-auto max-w-6xl px-4 py-8 sm:px-6">
-      <Seo title="Admin dashboard" description="Greenshoe admin dashboard." canonicalPath="/admin" />
+      <Seo title="Admin dashboard" description="IPONOW admin dashboard." canonicalPath="/admin" />
       <div className="flex items-center justify-between">
         <div>
           <h1 className="font-display text-3xl font-semibold">Admin dashboard</h1>

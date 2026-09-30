@@ -81,8 +81,8 @@ export function IPODetail() {
             "@context": "https://schema.org",
             "@type": "BreadcrumbList",
             itemListElement: [
-              { "@type": "ListItem", position: 1, name: "IPOs", item: "https://greenshoe.example.com/ipos" },
-              { "@type": "ListItem", position: 2, name: ipo.name, item: `https://greenshoe.example.com/ipo/${ipo.slug}` },
+              { "@type": "ListItem", position: 1, name: "IPOs", item: "https://IPONOW.example.com/ipos" },
+              { "@type": "ListItem", position: 2, name: ipo.name, item: `https://IPONOW.example.com/ipo/${ipo.slug}` },
             ],
           },
         ]}

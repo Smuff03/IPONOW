@@ -9,7 +9,7 @@ import { mapIpo, mapArticle, mapReview } from "@/services/apiMappers";
 import type { IPO, IPOStatus, Article, Review, AllotmentLink } from "@/types/ipo";
 
 const USE_LIVE_API = true; // reading from the Express API (server/src) — database is the source of truth
-const API_BASE = import.meta.env.VITE_API_URL ?? "/api";
+const API_BASE = import.meta.env.VITE_ENV == "production" ? import.meta.env.VITE_API_URL : "http://localhost:4000/api";
 
 function delay<T>(value: T, ms = 180): Promise<T> {
   return new Promise((resolve) => setTimeout(() => resolve(value), ms));
